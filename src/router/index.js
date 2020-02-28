@@ -18,7 +18,7 @@ const routes = [
   {path: '/markers/:id', name: 'markers-show', component: MarkersShow},
   {path: '/markers/:id/edit', name: 'markers-edit', component: MarkersEdit},
 
-  { path: '/signup', name: 'signup', component: Signup },
+  { path: '/', name: 'root', component: Signup },
   { path: '/login', name: 'login', component: Login },
   { path: '/logout', name: 'logout', component: Logout }
  
