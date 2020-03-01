@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import MarkersIndex from '../views/MarkersIndex.vue'
 import MarkersNew from '../views/MarkersNew.vue'
 import MarkersShow from '../views/MarkersShow.vue'
-import MarkersEdit from '../views/MarkersShow.vue'
+import MarkersEdit from '../views/MarkersEdit.vue'
 
 import Signup from "../views/Signup.vue";
 import Login from '../views/Login.vue';
@@ -13,8 +13,8 @@ import Logout from "../views/Logout.vue";
 Vue.use(VueRouter)
 
 const routes = [
-  {path: '/index', name: 'markers-index', component: MarkersIndex},
-  {path: '/new', name: 'markers-new', component: MarkersNew},
+  {path: '/markers', name: 'markers-index', component: MarkersIndex},
+  {path: '/markers/new', name: 'markers-new', component: MarkersNew},
   {path: '/markers/:id', name: 'markers-show', component: MarkersShow},
   {path: '/markers/:id/edit', name: 'markers-edit', component: MarkersEdit},
 
