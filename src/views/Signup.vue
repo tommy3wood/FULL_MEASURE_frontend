@@ -27,6 +27,12 @@
           <label>Password</label>
           <input type="password" v-model="password">
         </div>
+
+        <div>
+          <label>Password Confirmation</label>
+          <input type="password" v-model="passwordConfirmation">
+        </div>
+
         <input type="submit" class="btn btn-primary" value="Submit">
       </form>
     </div>
@@ -37,6 +43,8 @@
 </style>
 
 <script>
+import axios from "axios";
+  
 export default {
   data: function() {
     return {
@@ -44,6 +52,7 @@ export default {
       zipCode: "",
       email: "",
       password: "",
+      passwordConfirmation: "",
       errors: []
     };
   },
@@ -53,10 +62,11 @@ export default {
         name: this.name,
         zip_code: this.zipCode,
         email: this.email,
-        password: this.password
+        password: this.password,
+        password_confirmation: this.passwordConfirmation
       };
       axios
-      .post("/api/markers", params)
+      .post("/api/users", params)
       .then(response => {
         this.$router.push("/login");
       })
