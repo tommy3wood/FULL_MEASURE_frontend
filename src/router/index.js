@@ -5,6 +5,7 @@ import MarkersIndex from '../views/MarkersIndex.vue'
 import MarkersNew from '../views/MarkersNew.vue'
 import MarkersShow from '../views/MarkersShow.vue'
 import MarkersEdit from '../views/MarkersEdit.vue'
+import MarkersTable from '../views/MarkersTable.vue'
 
 import Signup from "../views/Signup.vue";
 import Login from '../views/Login.vue';
@@ -14,6 +15,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {path: '/markers', name: 'markers-index', component: MarkersIndex},
+  {path: '/markers/table', name: 'markers-table', component: MarkersTable},
   {path: '/markers/new', name: 'markers-new', component: MarkersNew},
   {path: '/markers/:id', name: 'markers-show', component: MarkersShow},
   {path: '/markers/:id/edit', name: 'markers-edit', component: MarkersEdit},
