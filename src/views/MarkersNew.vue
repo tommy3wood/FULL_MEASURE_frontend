@@ -88,7 +88,7 @@ export default {
         axios
         .post("/api/markers", clientParams)
         .then(response => {
-          this.$router.push("/markers");
+          this.$router.push("/markers/table");
         }).catch(error => {
           this.errors = error.response.data.errors;
         });
