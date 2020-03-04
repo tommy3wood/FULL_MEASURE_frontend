@@ -23,7 +23,7 @@
           <td>{{ marker.zip_code }}</td>
           <td>{{ marker.status }}</td>
           <!-- <td>{{ formatDate(marker.created_at) }}</td> -->
-          <td>{{ (marker.created_at) }}</td>
+          <td>{{ relativeDate(marker.created_at) }}</td>
 
         </tr>
       </tbody>
@@ -48,8 +48,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <router-link v-bind:to="'/markers/' + currentMarker.id + '/edit'" class="btn btn-primary">Update</router-link>
-            <input v-on:click="destroyMarker()" class="btn btn-primary ml-3" type="submit" value="Delete">
+            <router-link v-bind:to="'/markers/' + currentMarker.id + '/edit'" data-dismiss="modal" class="btn btn-primary">Update</router-link>
+            <input v-on:click="destroyMarker()" data-dismiss="modal" class="btn btn-primary ml-3" type="submit" value="Delete">
           </div>
         </div>
       </div>
@@ -63,7 +63,8 @@
 
 <script>
 var axios = require("axios");
-// import moment from "moment";
+import moment from "moment";
+
 export default {
   data: function() {
     return {
@@ -76,24 +77,19 @@ export default {
       .get("/api/markers")
       .then(response => {
         this.markers = response.data;
-      });
+    });
   },
   methods: {
     destroyMarker: function() {
       axios
-        .delete("api/markers/" + this.$route.params.id)
+        .delete("api/markers/" + this.currentMarker.id)
         .then(response => {
-          this.$router.push("/")
-        });
+          this.$router.push("/markers/new")
+      });
+    },
+    relativeDate: function(date) {
+      return moment(date).format('MMMM Do YYYY, h:mm:ss a');
     }
   }
-  // methods: {
-  //   relativeDate: function(date) {
-  //     return moment(date).fromNow();
-  //   },
-  //   formatDate: function(date) {
-  //     return moment(date).format('MMMM Do YYYY, h:mm:ss a');
-  //   }
-  // }
 };
 </script>
