@@ -1,6 +1,7 @@
 <template>
   <div class="markers-show">
     <div class="container">
+
       <ul>
         <li>Address: {{marker.address}}</li>
         <li>Description: {{marker.description}}</li>
@@ -11,8 +12,9 @@
       <div>
         <img v-bind:src="marker.map" v-bind:alt="marker.address">
       </div>
+
       <router-link v-bind:to="'/markers/' + marker.id + '/edit'" class="btn btn-primary">Update</router-link>
-      <input v-on:click="destroyMarker()" class="btn btn-primary ml-3" type="submit" value="Delete">
+      <input v-on:click="destroyMarker()" class="btn btn-danger ml-3" type="submit" value="Delete">
     </div>
   </div>
 </template>
