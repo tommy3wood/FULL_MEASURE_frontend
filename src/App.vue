@@ -16,20 +16,18 @@
           <li class="nav-item">
             <a class="nav-link" href="/markers/new">Report Poop</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/signup">Signup</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Logout</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/signup">Signup</a>
+              <a class="dropdown-item" href="/login">Login</a>
+              <a class="dropdown-item" href="/logout">Logout</a>
+            </div>
+
+
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+
       </div>
     </nav>
     </div>
@@ -38,6 +36,33 @@
 </template>
 
 <style>
+
+body {
+  background-image: url("../public/concrete_seamless.png");
+}
+
+#table-size {
+  width: 70%;
+  margin: auto;
+}
+
+.title {
+  font-family: Impact;
+  font-size: 90px;
+}
+
+.subtitle {
+  font-family: Impact;
+}
+
+.textarea {
+  width: 350px;
+}
+
+.textarea-desc {
+  width: 100%;
+  height: 150px;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -65,13 +90,21 @@
 
 #col-1 {
   text-align: right;
+  width: 20%;
 }
 
 #col-2 {
   text-align: left;
+  width: 200px;
 }
 
 tr {
   padding-bottom: 20px;
+}
+
+#row-small {
+  height: 15px;
+  font-style: italic;
+  font-size: 13px;
 }
 </style>
