@@ -2,38 +2,50 @@
   <div class="signup">
     <div class="container">
       <form v-on:submit.prevent="submit()">
-        <h1>signup</h1>
+        <h1 class="subtitle">Signup</h1>
+
+        <div>
+          <p>Welcome to the allegiance against sidewalk poops.</p>
+        </div>
 
         <ul>
           <li v-for="error in errors">{{error}}</li>
         </ul>
 
-        <div>
-          <label>Name</label>
-          <input type="name" v-model="name">
-        </div>
+        <table align="center">
+          <tr>
+            <td id="col-1"><label>Name:</label></td>
+            <td id="col-2"><input type="text" class="textarea" v-model="name"></td>
+          </tr>
 
-        <div>
-          <label>Zip Code</label>
-          <input type="zipCode" v-model="zipCode">
-        </div>
+          <tr>
+            <td id="col-1"><label>Zip Code:</label></td>
+            <td id="col-2"><input type="text" class="textarea" v-model="zipCode"></td>
+          </tr>
 
-        <div>
-          <label>Email</label>
-          <input type="email" v-model="email">
-        </div>
+          <tr>
+            <td id="col-1"><label>Email:</label></td>
+            <td id="col-2"><input type="text" class="textarea" v-model="email"></td>
+          </tr>
 
-        <div>
-          <label>Password</label>
-          <input type="password" v-model="password">
-        </div>
+          <tr>
+            <td id="col-1"><label>Password:</label></td>
+            <td id="col-2"><input type="password" class="textarea" v-model="password"></td>
+          </tr>
 
-        <div>
-          <label>Password Confirmation</label>
-          <input type="password" v-model="passwordConfirmation">
-        </div>
+          <tr>
+            <td id="col-1"><label>Password Confirmation:</label></td>
+            <td id="col-2"><input type="password" class="textarea" v-model="passwordConfirmation"></td>
+          </tr>
 
-        <input type="submit" class="btn btn-primary" value="Submit">
+          <tr>
+            <td id="col-1"></td>
+            <td id="col-2"><input type="submit" class="btn btn-success" value="Signup"></td>
+          </tr>
+
+
+        </table>
+
       </form>
     </div>
   </div>

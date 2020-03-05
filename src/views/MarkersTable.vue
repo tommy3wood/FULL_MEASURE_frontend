@@ -1,8 +1,14 @@
 <template>
   <div class="markers-table">
-    <h1 class="text-center mb-5">Markers</h1>
+    <h1 class="title">FULL MEASURE</h1>
+    <h2>Take your neighborhood back</h2><br />
+    <h1 class="subtitle">Poop Report</h1>
+      <div>
+        <h6>Select from the following items for more details on reported encounters.</h6>
+      </div>
 
-    <table class="table table-striped table-dark">
+
+    <table class="table table-striped table-light" id="table-size">
       <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
@@ -16,7 +22,7 @@
         <tr v-for="marker in markers">
           <th scope="row">{{ marker.id }}</th>
           <td>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" @click="currentMarker = marker">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal" @click="currentMarker = marker">
               {{marker.address}}
             </button>
           </td>
@@ -39,18 +45,20 @@
             </button>
           </div>
           <div class="modal-body">
-            <ul>
-              <li>Description: {{currentMarker.description}}</li>
-              <li>Status: {{currentMarker.status}}</li>
-              <li><img v-bind:src="currentMarker.image_url" v-bind:alt="currentMarker.address"></li>
-            </ul>
             <div>
               <img v-bind:src="currentMarker.map" v-bind:alt="currentMarker.address">
             </div>
+            <div><h5>Description</h5></div>
+            <div>{{currentMarker.description}}</div>
+            <br>
+            <div><h5>Status</h5></div>
+            <div>{{currentMarker.status}}</div>
+            <div><img v-bind:src="currentMarker.image_url" v-bind:alt="currentMarker.address" width=250px></div>
+            
           </div>
           <div class="modal-footer">
             <router-link v-bind:to="'/markers/' + currentMarker.id + '/edit'" data-dismiss="modal" class="btn btn-primary">Update</router-link>
-            <input v-on:click="destroyMarker()" data-dismiss="modal" class="btn btn-primary ml-3" type="submit" value="Delete">
+            <input v-on:click="destroyMarker()" data-dismiss="modal" class="btn btn-danger ml-3" type="submit" value="Delete">
           </div>
         </div>
       </div>
