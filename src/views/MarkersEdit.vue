@@ -73,7 +73,7 @@ export default {
       axios
       .patch("/api/markers/" + this.$route.params.id, clientParams)
       .then(response => {
-        this.$router.push("/markers/" + this.$route.params.id);
+        this.$router.push("/markers/table");
       }).catch(error => {
         this.errors = error.response.data.errors;
       });
