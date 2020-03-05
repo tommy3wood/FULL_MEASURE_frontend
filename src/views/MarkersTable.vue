@@ -42,6 +42,7 @@
             <ul>
               <li>Description: {{currentMarker.description}}</li>
               <li>Status: {{currentMarker.status}}</li>
+              <li><img v-bind:src="currentMarker.image_url" v-bind:alt="currentMarker.address"></li>
             </ul>
             <div>
               <img v-bind:src="currentMarker.map" v-bind:alt="currentMarker.address">

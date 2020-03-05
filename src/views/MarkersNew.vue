@@ -27,12 +27,14 @@
 
         <tr>
           <td id="col-1"><label>Picture:</label></td>
-          <td id="col-2"><input type="file" ref="inputFile" @change=uploadFile()></td>
+          <td id="col-2"><input type="file" v-on:change="setFile($event)" ref="fileInput"></td>
         </tr>
+
+
         </table>
         
 
-          <input type="submit" class="btn btn-primary" value="Create marker">
+          <input type="submit" class="btn btn-primary" value="Create Marker">
 
 
       </form>
@@ -55,38 +57,27 @@ export default {
         description: "",
         status: "",
         errors: [],
-        inputPicture: null
+        image: ""
       };
     },
     created: function() {},
     methods: {
-      uploadFile: function() {
-        this.inputPicture = this.$refs.inputFile.files[0];
-      },
-      createItem: function() {
-        const params = {
-          'image': this.inputPicture
+      setFile: function(event) {
+        if (event.target.files.length > 0) {
+          this.image = event.target.files[0];
         }
-
-        let formData = new FormData()
-
-        Object.entries(params).forEach(
-          ([key, value]) => formData.append(key, value)
-          )
-
-        axios.post('/item', formData)
       },
+
       createMarker: function() {
-        var clientParams = {
-          address: this.address,
-          zip_code: this.zipCode,
-          description: this.description,
-          status: this.status, 
-          inputPicture: this.inputPicture
-        };
+        var formData = new FormData();
+          formData.append("address", this.address);
+          formData.append("zip_code", this.zipCode);
+          formData.append("description", this.description);
+          formData.append("status", this.status);
+          formData.append("image", this.image);
 
         axios
-        .post("/api/markers", clientParams)
+        .post("/api/markers", formData)
         .then(response => {
           this.$router.push("/markers/table");
         }).catch(error => {
