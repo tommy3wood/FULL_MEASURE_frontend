@@ -6,6 +6,7 @@
         <li>Address: {{marker.address}}</li>
         <li>Description: {{marker.description}}</li>
         <li>Status: {{marker.status}}</li>
+        <li><img :src="marker.image_url"></li>
       </ul>
      
   
@@ -34,7 +35,8 @@ export default {
         zipCode: "",
         description: "",
         status: "",
-        map: ""
+        map: "", 
+        image: ""
       }
     };
   },
